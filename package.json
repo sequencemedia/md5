@@ -1,7 +1,7 @@
 {
   "name": "@sequencemedia/md5",
   "version": "0.0.1",
-  "description": "MD5 implementation as a static class",
+  "description": "Hashing with MD5",
   "main": "./index.mjs",
   "type": "module",
   "types": "./index.d.mts",
