@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": true,
+    "strictNullChecks": true,
+    "removeComments": true
+  },
+  "include": [
+    "./*.mjs",
+    "./*.mts"
+  ]
+}
