@@ -9,6 +9,8 @@
   },
   "include": [
     "./*.mjs",
-    "./*.mts"
+    "./*.mts",
+    "./class/*.mjs",
+    "./class/*.mts"
   ]
 }

@@ -46,6 +46,6 @@
   },
   "exports": {
     ".": "./index.mjs",
-    "./module": "./module/index.mjs"
+    "./class": "./class/index.mjs"
   }
 }

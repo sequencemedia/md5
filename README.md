@@ -1,13 +1,15 @@
 # @sequencemedia/md5
 
-A class for hashing with MD5
+Hashing with MD5
+
+As a module
 
 ```javascript
-import MD5 from '@sequencemedia/md5'
+import * as MD5 from '@sequencemedia/md5'
 ```
 
-Or, as a module
+As a class
 
 ```javascript
-import * as MD5 from '@sequencemedia/md5/module'
+import MD5 from '@sequencemedia/md5/class'
 ```
