@@ -17,13 +17,13 @@
   },
   "scripts": {
     "lint": "run-s lint:mjs lint:mts",
-    "lint:mjs": "eslint . --ext .mjs,.cjs",
-    "lint:mts": "eslint . --ext .mts,.cts",
     "lint:fix": "run-s lint:mjs:fix lint:mts:fix",
+    "lint:mjs": "eslint . --ext .mjs,.cjs",
     "lint:mjs:fix": "npm run lint:mjs -- --fix",
+    "lint:mts": "eslint . --ext .mts,.cts",
     "lint:mts:fix": "npm run lint:mts -- --fix",
-    "test": "cross-env NODE_ENV=test mocha test --recursive",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "cross-env NODE_ENV=test mocha test --recursive"
   },
   "dependencies": {
     "debug": "^4.3.4"
