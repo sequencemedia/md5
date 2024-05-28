@@ -96,8 +96,9 @@ export function hash (value) {
 export function rh (n) {
   let s = ''
 
-  for (let j = 0; j <= 3; j++) {
-    s += alphabet.charAt((n >> (j * 8 + 4)) & 0x0F) + alphabet.charAt((n >> (j * 8)) & 0x0F)
+  for (let i = 0; i <= 3; i++) {
+    const j = i * 8
+    s += alphabet.charAt((n >> (j + 4)) & 0x0F) + alphabet.charAt((n >> j) & 0x0F)
   }
 
   return s
