@@ -14,7 +14,7 @@ export default class MD5 {
     let lastC
     let lastD
 
-    for (let i = 0; i < x.length; i += 16) {
+    for (let i = 0, j = x.length; i < j; i += 16) {
       lastA = a
       lastB = b
       lastC = c
@@ -137,19 +137,21 @@ export default class MD5 {
 
   static sb (x) {
     let i
-    const numBlocks = ((x.length + 8) >> 6) + 1
-    const blocks = new Array(numBlocks * 16)
+    const j = x.length
+    const n = ((j + 8) >> 6) + 1
+    const m = n * 16
+    const blocks = new Array(m)
 
-    for (i = 0; i < numBlocks * 16; i++) {
+    for (i = 0; i < m; i++) {
       blocks[i] = 0
     }
 
-    for (i = 0; i < x.length; i++) {
+    for (i = 0; i < j; i++) {
       blocks[i >> 2] |= x.charCodeAt(i) << ((i % 4) * 8)
     }
 
     blocks[i >> 2] |= 0x80 << ((i % 4) * 8)
-    blocks[numBlocks * 16 - 2] = x.length * 8
+    blocks[m - 2] = j * 8
 
     return blocks
   }
