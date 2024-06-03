@@ -16,9 +16,7 @@
         "*.cts",
         "*.tsx"
       ],
-      "extends": [
-        "standard-with-typescript"
-      ],
+      "extends": "love",
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
         "project": "tsconfig.json",
