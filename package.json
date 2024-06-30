@@ -10,7 +10,7 @@
     "email": "sequencemedia@sequencemedia.net",
     "url": "http://sequencemedia.net"
   },
-  "license": "MIT",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sequencemedia/md5.git"
@@ -33,7 +33,7 @@
     "@babel/core": "^7.24.7",
     "@babel/eslint-parser": "^7.24.7",
     "@babel/preset-env": "^7.24.7",
-    "@sequencemedia/hooks": "^1.0.495",
+    "@sequencemedia/hooks": "^1.0.496",
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^7.14.1",
     "core-js": "^3.37.1",
