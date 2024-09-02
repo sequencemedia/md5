@@ -34,7 +34,7 @@
     "@babel/eslint-parser": "^7.25.1",
     "@babel/preset-env": "^7.25.4",
     "@sequencemedia/hooks": "^1.0.543",
-    "@typescript-eslint/eslint-plugin": "7.18.0",
+    "@typescript-eslint/eslint-plugin": "8.3.0",
     "@typescript-eslint/parser": "7.18.0",
     "core-js": "^3.38.1",
     "cross-env": "^7.0.3",
