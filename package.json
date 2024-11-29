@@ -22,14 +22,12 @@
     "lint:mjs:fix": "npm run lint:mjs -- --fix",
     "lint:mts": "eslint . --ext .mts,.cts",
     "lint:mts:fix": "npm run lint:mts -- --fix",
-    "prepare": "husky",
-    "test": "cross-env NODE_ENV=test mocha test --recursive"
+    "prepare": "husky"
   },
   "dependencies": {
     "debug": "^4.3.7"
   },
   "devDependencies": {
-    "@babel/cli": "^7.25.9",
     "@babel/core": "^7.26.0",
     "@babel/eslint-parser": "^7.25.9",
     "@babel/preset-env": "^7.26.0",
