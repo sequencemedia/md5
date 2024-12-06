@@ -4,20 +4,20 @@ export const alphabet = '0123456789abcdef'
 
 export function hash (value) {
   const blocks = sb(value)
+
+  let i = 0
+  const j = blocks.length
+
   let a = 1732584193
   let b = -271733879
   let c = -1732584194
   let d = 271733878
-  let lastA
-  let lastB
-  let lastC
-  let lastD
 
-  for (let i = 0, j = blocks.length; i < j; i += 16) {
-    lastA = a
-    lastB = b
-    lastC = c
-    lastD = d
+  for (i, j; i < j; i += 16) {
+    const lastA = a
+    const lastB = b
+    const lastC = c
+    const lastD = d
 
     a = ff(a, b, c, d, blocks[i], 7, -680876936)
     d = ff(d, a, b, c, blocks[i + 1], 12, -389564586)
@@ -136,17 +136,13 @@ export function ii (a, b, c, d, x, s, t) {
 }
 
 export function sb (value) {
-  let i
+  let i = 0
   const j = value.length
   const n = ((j + 8) >> 6) + 1
   const m = n * 16
-  const blocks = new Array(m)
+  const blocks = Array(m).fill(0)
 
-  for (i = 0; i < m; i++) {
-    blocks[i] = 0
-  }
-
-  for (i = 0; i < j; i++) {
+  for (i, j; i < j; i++) {
     blocks[i >> 2] |= value.charCodeAt(i) << ((i % 4) * 8)
   }
 
