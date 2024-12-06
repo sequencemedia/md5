@@ -1,4 +1,4 @@
-export default class MD5 {
+export default class MD5 { // eslint-disable-line @typescript-eslint/no-extraneous-class -- Class is a representation of a static module
   static alphabet: string
   static hash (value: number): string
   static rh (n: number): string
