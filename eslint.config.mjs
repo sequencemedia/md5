@@ -10,26 +10,23 @@ export default [
   {
     ...standard.recommended,
     files: [
-      '*.{mjs,cjs,mts,cts}'
+      '*.cjs'
     ],
     languageOptions: {
       globals: {
         ...globals.node
       }
     }
+  }, {
+    ...standard.recommended,
+    files: [
+      '*.{mts,mjs}'
+    ]
   },
   {
     ...typescript.recommended,
     files: [
-      '*.{mts,cts}'
-    ],
-    rules: {
-      '@typescript-eslint/max-params': [
-        'error',
-        {
-          max: 7
-        }
-      ]
-    }
+      '*.mts'
+    ]
   }
 ]
