@@ -1,24 +1,35 @@
 import globals from 'globals'
-import standard from '@sequencemedia/eslint-config-standard/merge'
-import typescript from '@sequencemedia/eslint-config-typescript/merge'
+import {
+  configs as standard
+} from '@sequencemedia/eslint-config-standard'
+import {
+  configs as typescript
+} from '@sequencemedia/eslint-config-typescript'
 
 export default [
-  ...standard({
+  {
+    ...standard.recommended,
     files: [
-      '**/*.{mjs,cjs}'
+      '*.{mjs,cjs,mts,cts}'
     ],
     languageOptions: {
       globals: {
         ...globals.node
       }
     }
-  }),
-  ...typescript({
+  },
+  {
+    ...typescript.recommended,
     files: [
-      '**/*.{mts,cts}'
+      '*.{mts,cts}'
     ],
     rules: {
-      '@typescript-eslint/max-params': ['error', { max: 7 }]
+      '@typescript-eslint/max-params': [
+        'error',
+        {
+          max: 7
+        }
+      ]
     }
-  })
+  }
 ]

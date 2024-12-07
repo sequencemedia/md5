@@ -1,8 +1,140 @@
 // A module refactor of https://stackoverflow.com/a/60467595/786389
 
-export const alphabet = '0123456789abcdef'
+const ALPHABET = '0123456789abcdef'
 
-export function hash (value) {
+/**
+ * @param {number} n
+ * @returns {string}
+ */
+function rh (n) {
+  let s = ''
+
+  for (let i = 0; i <= 3; i++) {
+    const j = i * 8
+    s += ALPHABET.charAt((n >> (j + 4)) & 0x0F) + ALPHABET.charAt((n >> j) & 0x0F)
+  }
+
+  return s
+}
+
+/**
+ * @param {number} x
+ * @param {number} y
+ * @returns {number}
+ */
+function ad (x, y) {
+  const l = (x & 0xFFFF) + (y & 0xFFFF)
+  const m = (x >> 16) + (y >> 16) + (l >> 16)
+
+  return (m << 16) | (l & 0xFFFF)
+}
+
+/**
+ * @param {number} n
+ * @param {number} c
+ * @returns {number}
+ */
+function rl (n, c) {
+  return (n << c) | (n >>> (32 - c))
+}
+
+/**
+ * @param {number} q
+ * @param {number} a
+ * @param {number} b
+ * @param {number} x
+ * @param {number} s
+ * @param {number} t
+ * @returns {number}
+ */
+function cm (q, a, b, x, s, t) {
+  return ad(rl(ad(ad(a, q), ad(x, t)), s), b)
+}
+
+/**
+ * @param {number} a
+ * @param {number} b
+ * @param {number} c
+ * @param {number} d
+ * @param {number} x
+ * @param {number} s
+ * @param {number} t
+ * @returns {number}
+ */
+function ff (a, b, c, d, x, s, t) {
+  return cm(b & c | ~b & d, a, b, x, s, t)
+}
+
+/**
+ * @param {number} a
+ * @param {number} b
+ * @param {number} c
+ * @param {number} d
+ * @param {number} x
+ * @param {number} s
+ * @param {number} t
+ * @returns {number}
+ */
+function gg (a, b, c, d, x, s, t) {
+  return cm(b & d | c & ~d, a, b, x, s, t)
+}
+
+/**
+ * @param {number} a
+ * @param {number} b
+ * @param {number} c
+ * @param {number} d
+ * @param {number} x
+ * @param {number} s
+ * @param {number} t
+ * @returns {number}
+ */
+function hh (a, b, c, d, x, s, t) {
+  return cm(b ^ c ^ d, a, b, x, s, t)
+}
+
+/**
+ * @param {number} a
+ * @param {number} b
+ * @param {number} c
+ * @param {number} d
+ * @param {number} x
+ * @param {number} s
+ * @param {number} t
+ * @returns {number}
+ */
+function ii (a, b, c, d, x, s, t) {
+  return cm(c ^ (b | ~d), a, b, x, s, t)
+}
+
+/**
+ * @param {string} value
+ * @returns {number[]}
+ */
+function sb (value) {
+  let i = 0
+  const j = value.length
+  const n = ((j + 8) >> 6) + 1
+  const m = n * 16
+  const blocks = Array(m).fill(0)
+
+  for (i, j; i < j; i++) {
+    blocks[i >> 2] |= value.charCodeAt(i) << ((i % 4) * 8)
+  }
+
+  blocks[i >> 2] |= 0x80 << ((i % 4) * 8)
+  blocks[m - 2] = j * 8
+
+  return blocks
+}
+
+/**
+ * Generate a hash for a string
+ *
+ * @param {string} value
+ * @returns {string}
+ */
+export default function hash (value) {
   const blocks = sb(value)
 
   let i = 0
@@ -91,63 +223,4 @@ export function hash (value) {
   }
 
   return rh(a) + rh(b) + rh(c) + rh(d)
-}
-
-export function rh (n) {
-  let s = ''
-
-  for (let i = 0; i <= 3; i++) {
-    const j = i * 8
-    s += alphabet.charAt((n >> (j + 4)) & 0x0F) + alphabet.charAt((n >> j) & 0x0F)
-  }
-
-  return s
-}
-
-export function ad (x, y) {
-  const l = (x & 0xFFFF) + (y & 0xFFFF)
-  const m = (x >> 16) + (y >> 16) + (l >> 16)
-
-  return (m << 16) | (l & 0xFFFF)
-}
-
-export function rl (n, c) {
-  return (n << c) | (n >>> (32 - c))
-}
-
-export function cm (q, a, b, x, s, t) {
-  return ad(rl(ad(ad(a, q), ad(x, t)), s), b)
-}
-
-export function ff (a, b, c, d, x, s, t) {
-  return cm(b & c | ~b & d, a, b, x, s, t)
-}
-
-export function gg (a, b, c, d, x, s, t) {
-  return cm(b & d | c & ~d, a, b, x, s, t)
-}
-
-export function hh (a, b, c, d, x, s, t) {
-  return cm(b ^ c ^ d, a, b, x, s, t)
-}
-
-export function ii (a, b, c, d, x, s, t) {
-  return cm(c ^ (b | ~d), a, b, x, s, t)
-}
-
-export function sb (value) {
-  let i = 0
-  const j = value.length
-  const n = ((j + 8) >> 6) + 1
-  const m = n * 16
-  const blocks = Array(m).fill(0)
-
-  for (i, j; i < j; i++) {
-    blocks[i >> 2] |= value.charCodeAt(i) << ((i % 4) * 8)
-  }
-
-  blocks[i >> 2] |= 0x80 << ((i % 4) * 8)
-  blocks[m - 2] = j * 8
-
-  return blocks
 }
