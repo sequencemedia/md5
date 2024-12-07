@@ -18,7 +18,7 @@ export default [
       '**/*.{mts,cts}'
     ],
     rules: {
-      '@typescript-eslint/max-params': ['error', { max: 8 }]
+      '@typescript-eslint/max-params': ['error', { max: 7 }]
     }
   })
 ]

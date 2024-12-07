@@ -1,4 +1,4 @@
-export const alphabet: string // eslint-disable-line @typescript-eslint/init-declarations -- Variable is initialised in `mjs`
+export declare const alphabet: string
 export function hash (value: string): string
 export function rh (n: number): string
 export function ad (x: number, y: number): number
