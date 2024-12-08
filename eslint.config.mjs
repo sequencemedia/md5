@@ -13,6 +13,7 @@ export default [
       '*.cjs'
     ],
     languageOptions: {
+      ...standard.recommended.languageOptions,
       globals: {
         ...globals.node
       }
