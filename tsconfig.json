@@ -2,10 +2,10 @@
   "compilerOptions": {
     "allowJs": true,
     "declaration": true,
-    "emitDeclarationOnly": true,
     "declarationMap": true,
-    "strictNullChecks": true,
-    "removeComments": true
+    "emitDeclarationOnly": true,
+    "removeComments": true,
+    "strictNullChecks": true
   },
   "include": [
     "./*.mjs",
