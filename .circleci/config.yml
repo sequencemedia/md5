@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  lint:
+  lint_and_test:
     docker:
       - image: cimg/node:lts
     steps:
@@ -15,6 +15,9 @@ jobs:
       - run:
           name: Lint
           command: npm run lint
+      - run:
+          name: Test
+          command: npm test
   publish:
     docker:
       - image: cimg/node:lts
@@ -31,13 +34,13 @@ jobs:
 workflows:
   commit-workflow:
     jobs:
-      - lint:
+      - lint_and_test:
           filters:
             branches:
               only: main
       - publish:
           requires:
-            - lint
+            - lint_and_test
           filters:
             tags:
               only: /^v.*/
