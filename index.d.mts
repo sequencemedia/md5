@@ -1,1 +1,1 @@
-export default function hash (value: string): string
+export default function getHash (v: unknown): string

@@ -11,7 +11,7 @@
   },
   "include": [
     "*.mjs",
-    "*.mts"
+    "*.mts", "src/**/*.mjs", "src/**/*.mts"
   ],
   "exclude": [
     "test"

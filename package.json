@@ -18,8 +18,8 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "test": "NODE_ENV=test mocha test",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "NODE_ENV=test mocha test"
   },
   "dependencies": {
     "debug": "^4.4.0"
