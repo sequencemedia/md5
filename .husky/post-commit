@@ -1,4 +1,4 @@
-
+#!/bin/sh
 
 get_package_changes () {
   local CURRENT_BRANCH
