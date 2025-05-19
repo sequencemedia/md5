@@ -1,6 +1,6 @@
 {
   "name": "@sequencemedia/md5",
-  "version": "0.1.94",
+  "version": "0.1.95",
   "description": "Hashing with MD5",
   "main": "./index.mjs",
   "type": "module",
