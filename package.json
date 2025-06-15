@@ -25,16 +25,16 @@
     "debug": "^4.4.1"
   },
   "devDependencies": {
-    "@sequencemedia/eslint-config-standard": "^0.2.64",
-    "@sequencemedia/eslint-config-typescript": "^0.1.101",
+    "@sequencemedia/eslint-config-standard": "^0.2.65",
+    "@sequencemedia/eslint-config-typescript": "^0.1.102",
     "@types/chai": "^5.2.2",
     "@types/debug": "^4.1.12",
     "@types/mocha": "^10.0.10",
     "chai": "^5.2.0",
-    "eslint": "^9.28.0",
+    "eslint": "^9.29.0",
     "globals": "^16.2.0",
     "husky": "^9.1.7",
-    "mocha": "^11.5.0"
+    "mocha": "^11.6.0"
   },
   "imports": {
     "#md5": "./index.mjs"
