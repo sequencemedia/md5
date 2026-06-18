@@ -10,7 +10,10 @@ export default [
   {
     ...standard.recommended,
     files: [
-      '*.cjs'
+      '*.{cjs,mts,mjs}'
+    ],
+    ignores: [
+      'test/*.{mts,mjs}'
     ],
     languageOptions: {
       ...standard.recommended.languageOptions,
@@ -18,15 +21,6 @@ export default [
         ...globals.node
       }
     }
-  },
-  {
-    ...standard.recommended,
-    files: [
-      '*.{mts,mjs}'
-    ],
-    ignores: [
-      'test/*.{mts,mjs}'
-    ]
   },
   {
     ...typescript.recommended,
@@ -40,7 +34,7 @@ export default [
   {
     ...standard.recommended,
     files: [
-      'test/**/*.{mts,mjs}'
+      'test/**/*.{cjs,mts,mjs}'
     ],
     languageOptions: {
       ...standard.recommended.languageOptions,
@@ -48,5 +42,14 @@ export default [
         ...globals.mocha
       }
     }
+  },
+  {
+    ...typescript.recommended,
+    files: [
+      'test/**/*.mts'
+    ],
+    ignores: [
+      'test/*.{mts,mjs}'
+    ]
   }
 ]
